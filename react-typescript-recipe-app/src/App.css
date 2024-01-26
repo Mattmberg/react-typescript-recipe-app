@@ -16,3 +16,16 @@
 .App-link {
   color: #61dafb;
 }
+
+.grid-container {
+  padding-left: 12px;
+  padding-right: 12px;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-gap: 12px;
+}
+
+.recipe-card {
+  border-style: solid;
+  border-width: 2px;
+}
