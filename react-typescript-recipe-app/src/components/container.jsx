@@ -2,6 +2,7 @@ import { Footer } from "./footer";
 import { Header } from "./header";
 import { recipeData } from "../data";
 import '../App.css';
+import { RecipeCard } from "./ReciperCard";
 
 export const Container = () => {
     return (
@@ -10,15 +11,7 @@ export const Container = () => {
             <main className ="">
                 <div className="grid-container">
                     {recipeData.map(recipe => {
-                        return(
-                            <div className="recipe-card" key={recipe.id}>
-                                <p>{recipe.name}</p>
-                                <p>{recipe.description}</p>
-                                {recipe.ingredients.map(ingredient => {
-                                    return(<p>{ingredient}</p>);
-                                })}
-                            </div>
-                        );
+                        return <RecipeCard key={recipe.id} {...recipe} />;
                     })}
                 </div>
             </main>
