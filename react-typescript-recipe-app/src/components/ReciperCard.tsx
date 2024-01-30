@@ -4,7 +4,7 @@ export const RecipeCard = ({ id, name, description, ingredients}: RecipeCardType
     return (
         <div className ="">
             <div className="">
-                <h2 className="">{name}</h2>
+                <div><input type="checkbox" value={name} id={name}/><label className=""><b>{name}</b></label></div>
                 <p className="">
                     {description}
                 </p>
