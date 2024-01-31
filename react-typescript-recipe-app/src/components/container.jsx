@@ -6,13 +6,43 @@ import { RecipeCard } from "./ReciperCard";
 import { useState } from "react";
 
 export const Container = () => {
-    const [sunMeal, setSunMeal] = useState({});
-    const [monMeal, setMonMeal] = useState({});
-    const [tuesMeal, setTuesMeal] = useState({});
-    const [wedMeal, setWedMeal] = useState({});
-    const [thurMeal, setThurMeal] = useState({});
-    const [friMeal, setFriMeal] = useState({});
-    const [satMeal, setSatMeal] = useState({});
+    const [meals, setMeals] = useState({
+        sunMeal: "",
+        monMeal: "",
+        tuesMeal: "",
+        wedMeal: "",
+        thurMeal: "",
+        friMeal: "",
+        satMeal: ""
+    });
+
+    const handleChangeSunday = () => {
+        setMeals({...meals, [e.target.name]:e.target.value });
+    };
+
+    const handleChangeMonday = () => {
+        setMeals({...meals, [e.target.name]:e.target.value });
+    };
+
+    const handleChangeTuesday = () => {
+        setMeals({...meals, [e.target.name]:e.target.value });
+    };
+
+    const handleChangeWednesday = () => {
+        setMeals({...meals, [e.target.name]:e.target.value });
+    };
+
+    const handleChangeThursday = () => {
+        setMeals({...meals, [e.target.name]:e.target.value });
+    };
+
+    const handleChangeFriday = () => {
+        setMeals({...meals, [e.target.name]:e.target.value });
+    };
+
+    const handleChangeSaturday = () => {
+        setMeals({...meals, [e.target.name]:e.target.value });
+    };
 
     return (
         <>
@@ -21,13 +51,13 @@ export const Container = () => {
                 <table>
                     <tr>
                         <th><b>Days</b></th>
-                        <th>Sunday</th>
-                        <th>Monday</th>
-                        <th>Tuesday</th>
-                        <th>Wednesday</th>
-                        <th>Thursday</th>
-                        <th>Friday</th>
-                        <th>Saturday</th>
+                        <th><input type="checkbox" value="Sunday" onChange={handleChangeSunday}/>Sunday</th>
+                        <th><input type="checkbox" value="Monday" onChange={handleChangeMonday}/>Monday</th>
+                        <th><input type="checkbox" value="Tuesday" onChange={handleChangeTuesday}/>Tuesday</th>
+                        <th><input type="checkbox" value="Wednesday" onChange={handleChangeWednesday}/>Wednesday</th>
+                        <th><input type="checkbox" value="Thursday" onChange={handleChangeThursday}/>Thursday</th>
+                        <th><input type="checkbox" value="Friday" onChange={handleChangeFriday}/>Friday</th>
+                        <th><input type="checkbox" value="Saturday" onChange={handleChangeSaturday}/>Saturday</th>
                     </tr>
                     <tr>
                         <td><b>Name</b></td>
@@ -41,13 +71,13 @@ export const Container = () => {
                     </tr>
                     <tr>
                         <td><b>Meal</b></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{sunMeal}</td>
+                        <td>{monMeal}</td>
+                        <td>{tuesMeal}</td>
+                        <td>{wedMeal}</td>
+                        <td>{thurMeal}</td>
+                        <td>{friMeal}</td>
+                        <td>{satMeal}</td>
                     </tr>
                 </table>
                 <div className="grid-container">
