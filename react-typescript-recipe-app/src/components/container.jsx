@@ -2,7 +2,7 @@ import { Footer } from "./footer";
 import { Header } from "./header";
 import { recipeData } from "../data";
 import '../App.css';
-import { RecipeCard } from "./ReciperCard";
+import { RecipeCard } from "./RecipeCard";
 import { useState } from "react";
 
 export const Container = () => {
@@ -16,34 +16,6 @@ export const Container = () => {
         satMeal: ""
     });
 
-    const handleChangeSunday = () => {
-        setMeals({...meals, [e.target.name]:e.target.value });
-    };
-
-    const handleChangeMonday = () => {
-        setMeals({...meals, [e.target.name]:e.target.value });
-    };
-
-    const handleChangeTuesday = () => {
-        setMeals({...meals, [e.target.name]:e.target.value });
-    };
-
-    const handleChangeWednesday = () => {
-        setMeals({...meals, [e.target.name]:e.target.value });
-    };
-
-    const handleChangeThursday = () => {
-        setMeals({...meals, [e.target.name]:e.target.value });
-    };
-
-    const handleChangeFriday = () => {
-        setMeals({...meals, [e.target.name]:e.target.value });
-    };
-
-    const handleChangeSaturday = () => {
-        setMeals({...meals, [e.target.name]:e.target.value });
-    };
-
     return (
         <>
             <Header/>
@@ -51,13 +23,13 @@ export const Container = () => {
                 <table>
                     <tr>
                         <th><b>Days</b></th>
-                        <th><input type="checkbox" value="Sunday" onChange={handleChangeSunday}/>Sunday</th>
-                        <th><input type="checkbox" value="Monday" onChange={handleChangeMonday}/>Monday</th>
-                        <th><input type="checkbox" value="Tuesday" onChange={handleChangeTuesday}/>Tuesday</th>
-                        <th><input type="checkbox" value="Wednesday" onChange={handleChangeWednesday}/>Wednesday</th>
-                        <th><input type="checkbox" value="Thursday" onChange={handleChangeThursday}/>Thursday</th>
-                        <th><input type="checkbox" value="Friday" onChange={handleChangeFriday}/>Friday</th>
-                        <th><input type="checkbox" value="Saturday" onChange={handleChangeSaturday}/>Saturday</th>
+                        <th>Sunday</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
                     </tr>
                     <tr>
                         <td><b>Name</b></td>
@@ -71,13 +43,76 @@ export const Container = () => {
                     </tr>
                     <tr>
                         <td><b>Meal</b></td>
-                        <td>{sunMeal}</td>
-                        <td>{monMeal}</td>
-                        <td>{tuesMeal}</td>
-                        <td>{wedMeal}</td>
-                        <td>{thurMeal}</td>
-                        <td>{friMeal}</td>
-                        <td>{satMeal}</td>
+                        <td>                            
+                            <select value={meals.sunMeal}                          
+                            onChange={e => { setMeals({
+                                ...meals, sunMeal: e.target.value
+                            }); }}>   
+                                {recipeData.map(recipe => {
+                                    return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
+                                })}
+                            </select>
+                        </td>
+                        <td>                           
+                            <select value={meals.monMeal}                          
+                            onChange={e => { setMeals({
+                                ...meals, monMeal: e.target.value
+                            }); }}>   
+                                {recipeData.map(recipe => {
+                                    return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
+                                })}
+                            </select>
+                        </td>
+                        <td>                            
+                            <select value={meals.tuesMeal}                          
+                            onChange={e => { setMeals({
+                                ...meals, tuesMeal: e.target.value
+                            }); }}>   
+                                {recipeData.map(recipe => {
+                                    return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
+                                })}
+                            </select>
+                        </td>
+                        <td>
+                            <select value={meals.wedMeal}                          
+                            onChange={e => { setMeals({
+                                ...meals, wedMeal: e.target.value
+                            }); }}>   
+                                {recipeData.map(recipe => {
+                                    return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
+                                })}
+                            </select>
+                        </td>
+                        <td>                            
+                            <select value={meals.thurMeal}                          
+                            onChange={e => { setMeals({
+                                ...meals, thurMeal: e.target.value
+                            }); }}>   
+                                {recipeData.map(recipe => {
+                                    return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
+                                })}
+                            </select>
+                            </td>
+                        <td>                            
+                            <select value={meals.friMeal}                          
+                            onChange={e => { setMeals({
+                                ...meals, friMeal: e.target.value
+                            }); }}>   
+                                {recipeData.map(recipe => {
+                                    return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
+                                })}
+                            </select>
+                        </td>
+                        <td>                            
+                            <select value={meals.satMeal}                          
+                            onChange={e => { setMeals({
+                                ...meals, satMeal: e.target.value
+                            }); }}>   
+                                {recipeData.map(recipe => {
+                                    return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
+                                })}
+                            </select>
+                        </td>
                     </tr>
                 </table>
                 <div className="grid-container">

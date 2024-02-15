@@ -2,13 +2,13 @@ import { RecipeCardType } from "../types";
 
 export const RecipeCard = ({ id, name, description, ingredients}: RecipeCardType) => {
     return (
-        <div className ="">
-            <div className="">
-                <div><input type="checkbox" value={name} id={name}/><label className=""><b>{name}</b></label></div>
-                <p className="">
+        <div className ="recipe-card">
+            <div className="recipe-card-body">
+                <div className="recipe-name"><label className=""><b><u>{name}</u></b></label></div>
+                <p className="recipe-description">
                     {description}
                 </p>
-                <p>
+                <p className="ingredient-box">
                 {ingredients.map(ingredient => {
                     return(<p>{ingredient}</p>);
                 })}
