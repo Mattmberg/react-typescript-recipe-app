@@ -279,4 +279,18 @@ export const recipeData = [
         description: "",
         ingredients: ["Arborio Rice", "Chicken Stock", "Vegetable Oil", "Butter", "Medium Shallot", "Dry White Wine", "Parmesan Cheese", "Italian Parsley", "Kosher Salt", "Black Pepper"],
     },
+    {
+        id: 41,
+        name:"Haddock",
+        category: "",
+        description: "",
+        ingredients: ["Haddock", "Crackers", "Butter", "Lemon", "Milk"],
+    },
+    {
+        id: 42,
+        name:"Cod",
+        category: "",
+        description: "",
+        ingredients: ["Cod", "Crackers", "Butter", "Lemon", "Milk"],
+    },
 ]
