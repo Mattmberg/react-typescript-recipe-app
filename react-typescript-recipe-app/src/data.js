@@ -165,7 +165,7 @@ export const recipeData = [
         name:"Chicken and Veggie Stir-Fry",
         category: "",
         description: "",
-        ingredients: ["Chicken", "Broccoli"],
+        ingredients: ["Chicken", "Stir Fry Veggies"],
     },
     {
         id: 25,
@@ -292,5 +292,12 @@ export const recipeData = [
         category: "",
         description: "",
         ingredients: ["Cod", "Crackers", "Butter", "Lemon", "Milk"],
+    },
+    {
+        id: 43,
+        name:"Tofu and Veggie Stir-Fry",
+        category: "",
+        description: "",
+        ingredients: ["Chicken", "Stir Fry Veggies", "Sauce will be added later"],
     },
 ]
