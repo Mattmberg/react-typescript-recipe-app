@@ -8,13 +8,13 @@ import { send } from 'emailjs-com';
 
 export const Container = () => {
     const [mealList, setMealList] = useState([
-        { id: "Sunday", name:"0"},
-        { id: "Monday", name:"1"},
-        { id: "Tuesday", name:"2"},
-        { id: "Wednesday", name:"3"},
-        { id: "Thursday", name:"4"},
-        { id: "Friday", name:"5"},
-        { id: "Saturday", name:"6"}
+        { id: "Sunday", name:""},
+        { id: "Monday", name:""},
+        { id: "Tuesday", name:""},
+        { id: "Wednesday", name:""},
+        { id: "Thursday", name:""},
+        { id: "Friday", name:""},
+        { id: "Saturday", name:""}
     ]);
 
     const [meals, setMeals] = useState({
@@ -28,135 +28,170 @@ export const Container = () => {
     });
 
     const [toSend, setToSend] = useState({
-        from_name: '',
-        to_name: 'Matthew Bergeron Jr.',
-        message: mealList,
+        from_name: 'Recipe App',
+        to_name: '',
+        sunMeal: '',
+        monMeal: '',
+        tuesMeal: '',
+        wedMeal: '',
+        thurMeal: '',
+        friMeal: '',
+        satMeal: '',
         reply_to: '',
       });
   
-      const onSubmit = (e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
-  
+
         send(
-          '',
-          '',
-          toSend,
-          '',
+            '',
+            '',
+            toSend,
+            '',
         )
         .then((response) => {
-          console.log('Success!', response.status, response.text);
-          setToSend({
+            console.log('Success!', response.status, response.text);
+            setToSend({
             from_name: 'Recipe App',
             to_name: '',
-            message: '',
+            sunMeal: '',
+            monMeal: '',
+            tuesMeal: '',
+            wedMeal: '',
+            thurMeal: '',
+            friMeal: '',
+            satMeal: '',
             reply_to: '',
-          })
+            })
         })
         .catch((err) => {
-          console.log('Failed...', err);
+            console.log('Failed...', err);
         });
-      };
+    };
+
+    const handleEmailChange = (e) => {
+        setToSend({ ...toSend, [e.target.name]: e.target.value})
+    };
 
     return (
         <>
             <Header/>
             <main className ="">
-                <table>
-                    <tr>
-                        <th><b>Days</b></th>
-                        <th>Sunday</th>
-                        <th>Monday</th>
-                        <th>Tuesday</th>
-                        <th>Wednesday</th>
-                        <th>Thursday</th>
-                        <th>Friday</th>
-                        <th>Saturday</th>
-                    </tr>
-                    <tr>
-                        <td><b>Name</b></td>
-                        <td>Person 1</td>
-                        <td>Person 2</td>
-                        <td>Person 2</td>
-                        <td>Person 1</td>
-                        <td>Person 2</td>
-                        <td>Person 1</td>
-                        <td>Person 1</td>
-                    </tr>
-                    <tr>
-                        <td><b>Meal</b>{mealList.mealListToSend}</td>
-                        <td>                            
-                            <select value={meals.sunMeal}                          
-                            onChange={e => { setMeals({
-                                ...meals, sunMeal: e.target.value
-                            }); setMealList(mealList.map(meal => { if (meal.id === "Sunday") { return { ...meal, name: e.target.value};} else { return meal; }}));  }}>   
-                                {recipeData.map(recipe => {
-                                    return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
-                                })}
-                            </select>
-                        </td>
-                        <td>                           
-                            <select value={meals.monMeal}                          
-                            onChange={e => { setMeals({
-                                ...meals, monMeal: e.target.value
-                            }); setMealList(mealList.map(meal => { if (meal.id === "Monday") { return { ...meal, name: e.target.value};} else { return meal; }})); }}>   
-                                {recipeData.map(recipe => {
-                                    return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
-                                })}
-                            </select>
-                        </td>
-                        <td>                            
-                            <select value={meals.tuesMeal}                          
-                            onChange={e => { setMeals({
-                                ...meals, tuesMeal: e.target.value
-                            }); setMealList(mealList.map(meal => { if (meal.id === "Tuesday") { return { ...meal, name: e.target.value};} else { return meal; }})); }}>   
-                                {recipeData.map(recipe => {
-                                    return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
-                                })}
-                            </select>
-                        </td>
-                        <td>
-                            <select value={meals.wedMeal}                          
-                            onChange={e => { setMeals({ ...meals, wedMeal: e.target.value }); setMealList(mealList.map(meal => { if (meal.id === "Wednesday") { return { ...meal, name: e.target.value};} else { return meal; }})); 
-                            }}>   
-                                {recipeData.map(recipe => {
-                                    return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
-                                })}
-                            </select>
-                        </td>
-                        <td>                            
-                            <select value={meals.thurMeal}                          
-                            onChange={e => { setMeals({
-                                ...meals, thurMeal: e.target.value
-                            }); setMealList(mealList.map(meal => { if (meal.id === "Thursday") { return { ...meal, name: e.target.value};} else { return meal; }})); }}>   
-                                {recipeData.map(recipe => {
-                                    return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
-                                })}
-                            </select>
+                <form onSubmit={onSubmit}>
+                    <table>
+                        <tr>
+                            <th><b>Days</b></th>
+                            <th>Sunday</th>
+                            <th>Monday</th>
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                            <th>Saturday</th>
+                        </tr>
+                        <tr>
+                            <td><b>Name</b></td>
+                            <td>Person 1</td>
+                            <td>Person 2</td>
+                            <td>Person 2</td>
+                            <td>Person 1</td>
+                            <td>Person 2</td>
+                            <td>Person 1</td>
+                            <td>Person 1</td>
+                        </tr>
+                        <tr>
+                            <td><b>Meal</b></td>
+                            <td>                            
+                                <select
+                                name="sunMeal" 
+                                value={meals.sunMeal}                          
+                                onChange={e => { setMeals({
+                                    ...meals, sunMeal: e.target.value
+                                }); setMealList(mealList.map(meal => { if (meal.id === "Sunday") { return { ...meal, name: e.target.value};} else { return meal; }})); setToSend({...toSend, sunMeal: e.target.value });}}>      
+                                    {recipeData.map(recipe => {
+                                        return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
+                                    })}
+                                </select>
                             </td>
-                        <td>                            
-                            <select value={meals.friMeal}                          
-                            onChange={e => { setMeals({
-                                ...meals, friMeal: e.target.value
-                            }); setMealList(mealList.map(meal => { if (meal.id === "Friday") { return { ...meal, name: e.target.value};} else { return meal; }})); }}>   
-                                {recipeData.map(recipe => {
-                                    return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
-                                })}
-                            </select>
-                        </td>
-                        <td>                            
-                            <select value={meals.satMeal}                          
-                            onChange={e => { setMeals({
-                                ...meals, satMeal: e.target.value
-                            }); setMealList(mealList.map(meal => { if (meal.id === "Saturday") { return { ...meal, name: e.target.value};} else { return meal; }})); }}>   
-                                {recipeData.map(recipe => {
-                                    return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
-                                })}
-                            </select>
-                        </td>
-                    </tr>
-                </table>
+                            <td>                           
+                                <select
+                                name="monMeal" 
+                                value={meals.monMeal}                          
+                                onChange={e => { setMeals({
+                                    ...meals, monMeal: e.target.value
+                                }); setMealList(mealList.map(meal => { if (meal.id === "Monday") { return { ...meal, name: e.target.value};} else { return meal; }})); setToSend({...toSend, monMeal: e.target.value });}}>     
+                                    {recipeData.map(recipe => {
+                                        return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
+                                    })}
+                                </select>
+                            </td>
+                            <td>                            
+                                <select 
+                                name="tuesMeal"
+                                value={meals.tuesMeal}                          
+                                onChange={e => { setMeals({
+                                    ...meals, tuesMeal: e.target.value
+                                }); setMealList(mealList.map(meal => { if (meal.id === "Tuesday") { return { ...meal, name: e.target.value};} else { return meal; }})); setToSend({...toSend, tuesMeal: e.target.value });}}>   
+                                    {recipeData.map(recipe => {
+                                        return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
+                                    })}
+                                </select>
+                            </td>
+                            <td>
+                                <select 
+                                name="wedMeal"
+                                value={meals.wedMeal}                          
+                                onChange={e => { setMeals({ ...meals, wedMeal: e.target.value }); setMealList(mealList.map(meal => { if (meal.id === "Wednesday") { return { ...meal, name: e.target.value};} else { return meal; }})); setToSend({...toSend, wedMeal: e.target.value });}}>   
+                                    {recipeData.map(recipe => {
+                                        return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
+                                    })}
+                                </select>
+                            </td>
+                            <td>                            
+                                <select 
+                                name="thurMeal"
+                                value={meals.thurMeal}                          
+                                onChange={e => { setMeals({
+                                    ...meals, thurMeal: e.target.value
+                                }); setMealList(mealList.map(meal => { if (meal.id === "Thursday") { return { ...meal, name: e.target.value};} else { return meal; }})); setToSend({...toSend, thurMeal: e.target.value });}}>   
+                                    {recipeData.map(recipe => {
+                                        return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
+                                    })}
+                                </select>
+                                </td>
+                            <td>                            
+                                <select 
+                                name="friMeal"
+                                value={meals.friMeal}                          
+                                onChange={e => { setMeals({
+                                    ...meals, friMeal: e.target.value
+                                }); setMealList(mealList.map(meal => { if (meal.id === "Friday") { return { ...meal, name: e.target.value};} else { return meal; }})); setToSend({...toSend, friMeal: e.target.value });}}>   
+                                    {recipeData.map(recipe => {
+                                        return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
+                                    })}
+                                </select>
+                            </td>
+                            <td>                            
+                                <select 
+                                name="satMeal"
+                                value={meals.satMeal}                          
+                                onChange={e => { setMeals({
+                                    ...meals, satMeal: e.target.value
+                                }); setMealList(mealList.map(meal => { if (meal.id === "Saturday") { return { ...meal, name: e.target.value};} else { return meal; }})); setToSend({...toSend, satMeal: e.target.value });}}>   
+                                    {recipeData.map(recipe => {
+                                        return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
+                                    })}
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <div>
+                        <h2>Email{meals.satMeal}|{toSend.satMeal}</h2>
+                        <input placeholder="Email" type="text" name="to_name" value={toSend.to_name} onChange={handleEmailChange} required/>
+                        <button className="" type="submit">Submit</button>
+                    </div>
+                </form>
                 <div className="grid-container">
-                    {mealList.map(meal => {return <div key={meal.id}>{meal.name}</div>})}
                     {recipeData.map(recipe => {
                         return <RecipeCard key={recipe.id} {...recipe} />;
                     })}
