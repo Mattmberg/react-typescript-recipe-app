@@ -7,7 +7,6 @@ import { useState } from "react";
 import { send } from 'emailjs-com';
 
 export const Container = () => {
-
     const [meals, setMeals] = useState({
         sunMeal: "",
         monMeal: "",

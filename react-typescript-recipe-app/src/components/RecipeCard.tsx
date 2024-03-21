@@ -1,6 +1,6 @@
 import { RecipeCardType } from "../types";
 
-export const RecipeCard = ({ id, name, description, ingredients}: RecipeCardType) => {
+export const RecipeCard = ({ id, name, description, ingredients, cookTemp}: RecipeCardType) => {
     return (
         <div className ="recipe-card">
             <div className="recipe-card-body">
@@ -8,6 +8,7 @@ export const RecipeCard = ({ id, name, description, ingredients}: RecipeCardType
                 <p className="recipe-description">
                     {description}
                 </p>
+                <p>Cook at: {cookTemp}</p>
                 <p className="ingredient-box">
                 {ingredients.map(ingredient => {
                     return(<p>{ingredient}</p>);
