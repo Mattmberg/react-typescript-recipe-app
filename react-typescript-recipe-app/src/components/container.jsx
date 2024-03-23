@@ -67,7 +67,7 @@ export const Container = () => {
         <>
             <Header/>
             <main className ="">
-                <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit}>
                     <table>
                         <tr>
                             <th><b>Days</b></th>
@@ -95,9 +95,10 @@ export const Container = () => {
                                 <select
                                 name="sunMeal" 
                                 value={meals.sunMeal}                          
-                                onChange={e => { setMeals({
-                                    ...meals, sunMeal: e.target.value
-                                }); setToSend({...toSend, sunMeal: e.target.value });}}>      
+                                onChange={e => { 
+                                    setMeals({ ...meals, sunMeal: e.target.value }); 
+                                    setToSend({...toSend, sunMeal: e.target.value });
+                                }}>      
                                     {recipeData.map(recipe => {
                                         return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
                                     })}
@@ -107,9 +108,10 @@ export const Container = () => {
                                 <select
                                 name="monMeal" 
                                 value={meals.monMeal}                          
-                                onChange={e => { setMeals({
-                                    ...meals, monMeal: e.target.value
-                                }); setToSend({...toSend, monMeal: e.target.value });}}>     
+                                onChange={e => { 
+                                    setMeals({ ...meals, monMeal: e.target.value }); 
+                                    setToSend({...toSend, monMeal: e.target.value });
+                                }}>     
                                     {recipeData.map(recipe => {
                                         return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
                                     })}
@@ -119,9 +121,10 @@ export const Container = () => {
                                 <select 
                                 name="tuesMeal"
                                 value={meals.tuesMeal}                          
-                                onChange={e => { setMeals({
-                                    ...meals, tuesMeal: e.target.value
-                                }); setToSend({...toSend, tuesMeal: e.target.value });}}>   
+                                onChange={e => { 
+                                    setMeals({ ...meals, tuesMeal: e.target.value }); 
+                                    setToSend({...toSend, tuesMeal: e.target.value });
+                                }}>   
                                     {recipeData.map(recipe => {
                                         return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
                                     })}
@@ -131,7 +134,10 @@ export const Container = () => {
                                 <select 
                                 name="wedMeal"
                                 value={meals.wedMeal}                          
-                                onChange={e => { setMeals({ ...meals, wedMeal: e.target.value }); setToSend({...toSend, wedMeal: e.target.value });}}>   
+                                onChange={e => { 
+                                    setMeals({ ...meals, wedMeal: e.target.value }); 
+                                    setToSend({...toSend, wedMeal: e.target.value });
+                                }}>   
                                     {recipeData.map(recipe => {
                                         return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
                                     })}
@@ -141,9 +147,10 @@ export const Container = () => {
                                 <select 
                                 name="thurMeal"
                                 value={meals.thurMeal}                          
-                                onChange={e => { setMeals({
-                                    ...meals, thurMeal: e.target.value
-                                }); setToSend({...toSend, thurMeal: e.target.value });}}>   
+                                onChange={e => { 
+                                    setMeals({ ...meals, thurMeal: e.target.value }); 
+                                    setToSend({...toSend, thurMeal: e.target.value });
+                                }}>   
                                     {recipeData.map(recipe => {
                                         return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
                                     })}
@@ -153,9 +160,10 @@ export const Container = () => {
                                 <select 
                                 name="friMeal"
                                 value={meals.friMeal}                          
-                                onChange={e => { setMeals({
-                                    ...meals, friMeal: e.target.value
-                                }); setToSend({...toSend, friMeal: e.target.value });}}>   
+                                onChange={e => { 
+                                    setMeals({ ...meals, friMeal: e.target.value }); 
+                                    setToSend({...toSend, friMeal: e.target.value });
+                                }}>   
                                     {recipeData.map(recipe => {
                                         return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
                                     })}
@@ -165,9 +173,10 @@ export const Container = () => {
                                 <select 
                                 name="satMeal"
                                 value={meals.satMeal}                          
-                                onChange={e => { setMeals({
-                                    ...meals, satMeal: e.target.value
-                                }); setToSend({...toSend, satMeal: e.target.value });}}>   
+                                onChange={e => { 
+                                    setMeals({ ...meals, satMeal: e.target.value }); 
+                                    setToSend({...toSend, satMeal: e.target.value });
+                                }}>   
                                     {recipeData.map(recipe => {
                                         return <option key={recipe.id} value={recipe.name}>{recipe.name}</option>;
                                     })}
@@ -176,7 +185,7 @@ export const Container = () => {
                         </tr>
                     </table>
                     <div>
-                        <h2>Email{meals.satMeal}|{toSend.satMeal}</h2>
+                        <h2>Email</h2>
                         <input placeholder="Email" type="text" name="to_name" value={toSend.to_name} onChange={handleEmailChange} required/>
                         <button className="" type="submit">Submit</button>
                     </div>
